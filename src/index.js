@@ -27,18 +27,22 @@ function calculateAll() {
 
   // ITERATION 3
   const totalValueElement = document.getElementById("total-value").querySelector("span");
-  let totalValue = 0;
+  let totalValue = 0.00;
   productsInCartArr = [...productsInCart]
 
   for (let i = 0; i < productsInCartArr.length; i++) {
+    let temp;
     if ([...document.querySelectorAll(".subtotal span")][i].innerText[0] === "$") {
-      totalValue += parseInt(([...document.querySelectorAll(".subtotal span")][i].innerText).substring(1));
+      temp = ([...document.querySelectorAll(".subtotal span")][i].innerText).substring(1);
     } else {
-      totalValue += parseInt([...document.querySelectorAll(".subtotal span")][i].innerText);
+      temp = [...document.querySelectorAll(".subtotal span")][i].innerText;
     }
+
+    temp = temp.split(".");
+    totalValue += parseFloat(`${temp[0]}.${temp[1]}`);
   }
 
-  totalValueElement.innerText = parseFloat(totalValue).toFixed(2);
+  totalValueElement.innerText = totalValue.toFixed(2);
   
 }
 
