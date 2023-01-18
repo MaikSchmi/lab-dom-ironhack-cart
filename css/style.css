@@ -60,6 +60,15 @@ table input[type='number'] {
   background-color: #f27471;
 }
 
+.btn-add-umbrella {
+  background-color: #01fd26;
+  color: white;
+}
+
+.btn-create-product {
+  background-color: lightgray;  
+}
+
 h1,
 h2,
 .calculate-total {
